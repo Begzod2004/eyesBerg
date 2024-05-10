@@ -27,7 +27,7 @@ class Work(models.Model):
     description = models.TextField()
     location = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    start_date = models.DateField(_("Start Date"), auto_now_add=False, auto_now=False, blank=True, null=True)
+    start_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
 
     PAYMENT_CHOICES = (
         ('cash', 'Cash'),

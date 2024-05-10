@@ -21,7 +21,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class WorkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Work
-        fields = ['id', 'user', 'title', 'description', 'image', 'location', 'price']
+        fields = ['id', 'user', 'title', 'description', 'location', 'price']
 
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
