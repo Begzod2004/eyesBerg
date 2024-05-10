@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Work, Review, Portfolio
+from .models import Category, Work, Review, Portfolio, WorkImage
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
@@ -13,11 +13,24 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
 # Admin for Work
+from django.contrib import admin
+
+class WorkImageInline(admin.StackedInline):
+    model = WorkImage
+    extra = 1  # Number of extra forms to display
+
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
-    list_display = ('title', 'user', 'location', 'price')
-    search_fields = ('title', 'description')
-    list_filter = ('location',)
+    inlines = [WorkImageInline]
+    list_display = ['title', 'user', 'location', 'price', 'start_date', 'payment_type']
+    list_filter = ['payment_type', 'start_date']
+    search_fields = ['title', 'description', 'user__username']
+
+@admin.register(WorkImage)
+class WorkImageAdmin(admin.ModelAdmin):
+    list_display = ['work', 'image']
+    search_fields = ['work__title']
+
 
 # Admin for Review
 @admin.register(Review)

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Category, Work, Review, Portfolio
+from .models import Category, Work, Review, Portfolio, WorkImage
 
 # class UserSerializer(serializers.ModelSerializer):
 #     class Meta:
@@ -18,10 +18,18 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ['id', 'name', 'image']
 
+
+class WorkImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WorkImage
+        fields = ['id', 'image']
+
 class WorkSerializer(serializers.ModelSerializer):
+    images = WorkImageSerializer(many=True, read_only=True)
     class Meta:
         model = Work
-        fields = ['id', 'user', 'title', 'description', 'location', 'price']
+        fields = ['id', 'user', 'title', 'description', 'location', 'price', 'start_date', 'payment_type', 'images']
+
 
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
