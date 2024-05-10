@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # local
-    'cleaners',
-
 
     # build apps
     'rest_framework',
@@ -51,12 +49,17 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework.authtoken',
     'parler',
-
+    # local
+    'apps.accounts',
+    # 'apps.order',
+    'apps.cleaners',
     
 
 
 
 ]
+
+AUTH_USER_MODEL='accounts.User'
 
 
 TINYMCE_DEFAULT_CONFIG = {
@@ -230,6 +233,15 @@ PARLER_LANGUAGES = {
         'hide_untranslated': False,
     }
 }
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'mrzaqulovbegzod@gmail.com'
+EMAIL_HOST_PASSWORD = 'lrkahalnlrqouubm'
+
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
@@ -497,3 +509,6 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+
+
