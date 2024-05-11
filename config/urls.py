@@ -8,7 +8,7 @@ from rest_framework.decorators import api_view, permission_classes
 from drf_yasg import openapi
 from rest_framework.permissions import AllowAny
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-
+from .generators import BothHttpAndHttpsSchemaGenerator
 
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -26,6 +26,7 @@ schema_view = get_schema_view(
    ),
    public=True,
    permission_classes=(permissions.AllowAny,),
+   generator_class=BothHttpAndHttpsSchemaGenerator
 )
 urlpatterns = [
     # swagger
