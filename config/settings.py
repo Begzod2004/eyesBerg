@@ -57,7 +57,7 @@ TINYMCE_DEFAULT_CONFIG = {
 
 
 LOCAL_BASE_URL = 'http://127.0.0.1:8000'
-PROD_BASE_URL = "http://emgu.uz"
+PROD_BASE_URL = "http://eyesberg.uz"
 # PROD_BASE_URL = 'https://w4.citynet.uz:4441'
 
 MIDDLEWARE = [
@@ -193,7 +193,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 CORS_ORIGIN_ALLOW_ALL = True
-CSRF_TRUSTED_ORIGINS = ["https://emgu.uz", "http://emgu.uz",]
+CSRF_TRUSTED_ORIGINS = ["https://eyesberg.uz", "http://eyesberg.uz",]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
