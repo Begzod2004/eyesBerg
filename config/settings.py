@@ -57,7 +57,7 @@ TINYMCE_DEFAULT_CONFIG = {
 
 
 LOCAL_BASE_URL = 'http://127.0.0.1:8000'
-PROD_BASE_URL = "http://eyesberg.uz"
+PROD_BASE_URL = "https://api.eyesberg.uz"
 # PROD_BASE_URL = 'https://w4.citynet.uz:4441'
 
 MIDDLEWARE = [
