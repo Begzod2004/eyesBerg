@@ -5,7 +5,6 @@ from datetime import timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -16,7 +15,6 @@ SECRET_KEY = 'django-insecure-u_veg9b-xsr$p#95t!flv&gva#1)=e6qj6@go!_03az5o4s5+c
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -41,20 +39,15 @@ INSTALLED_APPS = [
     'apps.accounts',
     # 'apps.order',
     'apps.cleaners',
-    
-
-
 
 ]
 
-AUTH_USER_MODEL='accounts.User'
-
+AUTH_USER_MODEL = 'accounts.User'
 
 TINYMCE_DEFAULT_CONFIG = {
     'height': 360,
     'width': 800,
 }
-
 
 LOCAL_BASE_URL = 'http://127.0.0.1:8000'
 PROD_BASE_URL = "https://api.eyesberg.uz"
@@ -70,7 +63,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 
 # cors headers ->
 CORS_ALLOWED_ORIGINS = [
@@ -134,16 +126,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # }
 
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'mydatabase',
     }
 }
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -193,7 +181,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 CORS_ORIGIN_ALLOW_ALL = True
-CSRF_TRUSTED_ORIGINS = ["https://eyesberg.uz", "http://eyesberg.uz",]
+CSRF_TRUSTED_ORIGINS = ["https://eyesberg.uz", "http://eyesberg.uz", "https://api.eyesberg.uz/"]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -222,14 +210,12 @@ PARLER_LANGUAGES = {
     }
 }
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'mrzaqulovbegzod@gmail.com'
 EMAIL_HOST_PASSWORD = 'lrkahalnlrqouubm'
-
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
@@ -262,8 +248,6 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(days=5),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=7),
 }
-
-
 
 JAZZMIN_UI_TWEAKS = {
     "navbar_small_text": False,
@@ -336,12 +320,12 @@ JAZZMIN_SETTINGS = {
     ############
     # Top Menu #
     ############
-    
+
     # Links to put along the top menu
     "topmenu_links": [
 
         # Url that gets reversed (Permissions can be added)
-        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
 
         # model admin to link to (Permissions checked against model)
         {"model": "auth.User"},
@@ -349,7 +333,7 @@ JAZZMIN_SETTINGS = {
         # App with dropdown menu to all its models pages (Permissions checked against models)
         {"app": "books"},
     ],
-    
+
     #############
     # User Menu #
     #############
@@ -374,7 +358,8 @@ JAZZMIN_SETTINGS = {
     "hide_apps": [],
 
     # Hide these models when generating side menu (e.g auth.user)
-    "hide_models": ['myprint.OrderForm', 'myprint.Category', 'myprint.User', 'myprint.AboutImage', 'myprint.About', 'myprint.Settings', 'myprint.TypeService', 'myprint.Customer'],
+    "hide_models": ['myprint.OrderForm', 'myprint.Category', 'myprint.User', 'myprint.AboutImage', 'myprint.About',
+                    'myprint.Settings', 'myprint.TypeService', 'myprint.Customer'],
 
     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
     "order_with_respect_to": ["auth", "books", "books.author", "books.book"],
@@ -382,8 +367,8 @@ JAZZMIN_SETTINGS = {
     # Custom links to append to app groups, keyed on app name
     "custom_links": {
         "books": [{
-            "name": "Make Messages", 
-            "url": "make_messages", 
+            "name": "Make Messages",
+            "url": "make_messages",
             "icon": "fas fa-comments",
             "permissions": ["books.view_book"]
         }]
@@ -399,7 +384,7 @@ JAZZMIN_SETTINGS = {
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-circle",
-    
+
     #################
     # Related Modal #
     #################
@@ -425,7 +410,6 @@ JAZZMIN_SETTINGS = {
     # - collapsible
     # - carousel
     "changeform_format": "horizontal_tabs",
-
 
 }
 
@@ -497,6 +481,3 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
-
-
-
